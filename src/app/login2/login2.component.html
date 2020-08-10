@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="alert alert-dismissible alert-warning">
+      <h2 style="font-size:250%; text-align:center"><strong>LOG IN 2</strong> </h2>
+      <br> <br>
+      <div class="container-fluid">
+      <form [formGroup]="loginForm" (submit)="login()"> 
+        <div class="form-group clearfix" [ngClass]="{ 'has-error': f.userid.errors }"> 
+  
+          <input type="name" class="form-control" id="name" 
+              aria-describedby="nameHelp" 
+              placeholder="USERNAME:" style="font-size:120%;"
+              formControlName="userid" required>
+          <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="alert alert-danger" style="font-size:90%; color: red;">
+              <div *ngIf="userid.errors.required" > UserName is required. </div>
+          </div>
+          <br>
+  
+         <input type="password" class="form-control" id="exampleInputPassword" 
+          placeholder="Hint:"
+          style="font-size:120%;"
+          formControlName="password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger" style="font-size:90%; color: red;">
+                <div *ngIf="password.errors.required"> Password is required. </div> 
+                <div *ngIf="password.errors.pattern" class="help is-danger"> Wrong </div>
+            </div>
+          <br>
+  
+          <input type="password" class="form-control" id="exampleInputPassword1" 
+          placeholder="Password:"
+          style="font-size:120%;"
+          formControlName="password1">
+            <div *ngIf="password1.invalid && (password1.dirty || password1.touched)" class="alert alert-danger" style="font-size:90%; color: red;">
+                <div *ngIf="password1.errors.required"> Password is required. </div>  
+            </div>
+          <br>
+  
+          <div style="text-align:center;">
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-outline-warning"
+              style="font-size:150%; color: black;">2</button>
+           
+                &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <button type="button" class="btn btn-outline-danger" (click)="onReset()"
+              style="font-size:150%; color: black;">RESET</button>
+          </div>
+                      
+        </div>
+      </form>
+    </div>
+    <h5>NOTE: All Character In UPERCASE</h5>
+  </div>
+  </div>
+
